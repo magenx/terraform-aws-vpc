@@ -68,7 +68,7 @@ locals {
 # Create VPC and base networking layout per environment
 # # ---------------------------------------------------------------------------------------------------------------------#
 module "vpc" {
-  source                  = "./modules/vpc"
+  source                  = "magenx/vpc/aws"
   project                 = local.project
   enable_dns_support      = local.env.vpc.enable_dns_support
   enable_dns_hostnames    = local.env.vpc.enable_dns_hostnames
