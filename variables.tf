@@ -37,7 +37,7 @@ variable "ami_image" {
   type        = string
 }
 variable "exclude_zone_ids" {
-  description = "EC2 NAT Gateway instance type"
+  description = "List of Availability Zone IDs to exclude"
   type        = list
 }
 variable "nat_gateway_instance_type" {
