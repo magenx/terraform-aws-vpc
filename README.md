@@ -5,6 +5,7 @@
 - Subnets [public, private]
 - EC2 NAT per AZ
 - S3 endpoint
+- Outputs with Parameters store
 
 
 
