@@ -19,9 +19,9 @@ data "aws_availability_zone" "available" {
 # # ---------------------------------------------------------------------------------------------------------------------#
 data "aws_ami" "this" {
   most_recent = true
-  owners      = var.ami_owner
+  owners      = [var.ami_owner]
   filter {
     name   = "name"
-    values = var.ami_image
+    values = [var.ami_image]
   }
 }
