@@ -4,6 +4,7 @@
 - VPC
 - Subnets [public, private]
 - EC2 NAT per AZ
+- SSM Instance profile
 - S3 endpoint
 - Outputs with Parameters store
 
