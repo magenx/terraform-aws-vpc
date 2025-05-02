@@ -6,10 +6,10 @@
 - EC2 NAT per AZ
 - SSM Instance profile
 - S3 endpoint
-- Outputs with Parameters store
-
-
-
+- Outputs with Parameters store  
+  
+  
+> usage
 ```
 //////////////////////////////////////////////////////////[ PROVIDER ]////////////////////////////////////////////////////
 
@@ -83,8 +83,8 @@ module "vpc" {
 }
 ```
 
-
-
+  
+> production.config.yaml
 ```
 brand: magenx
 codename: cloud
@@ -106,8 +106,8 @@ nat_gateway:
   firewall: true
 ```
 
-
-
+  
+> deploy
 ```
 terraform init
 terraform workspace new production
