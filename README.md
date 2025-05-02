@@ -1,3 +1,13 @@
+
+# AWS VPC Terraform module
+#### Terraform mini module which creates VPC resources on AWS
+- VPC
+- Subnets [public, private]
+- EC2 NAT per AZ
+- S3 endpoint
+
+
+
 ```
 //////////////////////////////////////////////////////////[ PROVIDER ]////////////////////////////////////////////////////
 
