@@ -60,44 +60,94 @@ output "vpc_cidr_block" {
   value       = aws_vpc.this.cidr_block
 }
 
-output "public_subnet_objects" {
-  description = "A list of all public subnets, containing the full objects."
-  value       = aws_subnet.public
+output "internet_gateway_id" {
+  description = "The ID of the Internet Gateway"
+  value       = aws_internet_gateway.this.id
 }
 
 output "public_subnets" {
   description = "List of IDs of public subnets"
-  value       = aws_subnet.public[*].id
+  value       = [for subnet in aws_subnet.public : subnet.id]
 }
 
 output "public_subnet_arns" {
   description = "List of ARNs of public subnets"
-  value       = aws_subnet.public[*].arn
+  value       = [for subnet in aws_subnet.public : subnet.arn]
 }
 
 output "public_subnets_cidr_blocks" {
   description = "List of cidr_blocks of public subnets"
-  value       = compact(aws_subnet.public[*].cidr_block)
+  value       = [for subnet in aws_subnet.public : subnet.cidr_block]
 }
 
-output "private_subnet_objects" {
-  description = "A list of all private subnets, containing the full objects."
-  value       = aws_subnet.private
+output "public_subnets_ipv6_cidr_blocks" {
+  description = "List of IPv6 cidr_blocks of public subnets in an IPv6 enabled VPC"
+  value       = [for subnet in aws_subnet.public : subnet.ipv6_cidr_block]
+}
+
+output "public_route_table_ids" {
+  description = "List of IDs of public route tables"
+  value       = [aws_route_table.public.id]
+}
+
+output "public_subnets_azs" {
+  description = "List of Availability Zones of public subnets"
+  value       = [for subnet in aws_subnet.public : subnet.availability_zone]
 }
 
 output "private_subnets" {
   description = "List of IDs of private subnets"
-  value       = aws_subnet.private[*].id
+  value       = [for subnet in aws_subnet.private : subnet.id]
 }
 
 output "private_subnet_arns" {
   description = "List of ARNs of private subnets"
-  value       = aws_subnet.private[*].arn
+  value       = [for subnet in aws_subnet.private : subnet.arn]
 }
 
 output "private_subnets_cidr_blocks" {
   description = "List of cidr_blocks of private subnets"
-  value       = compact(aws_subnet.private[*].cidr_block)
+  value       = [for subnet in aws_subnet.private : subnet.cidr_block]
+}
+
+output "private_subnets_ipv6_cidr_blocks" {
+  description = "List of IPv6 cidr_blocks of private subnets in an IPv6 enabled VPC"
+  value       = [for subnet in aws_subnet.private : subnet.ipv6_cidr_block]
+}
+
+output "private_route_table_ids" {
+  description = "List of IDs of private route tables"
+  value       = [for rt in aws_route_table.private : rt.id]
+}
+
+output "private_subnets_azs" {
+  description = "List of Availability Zones of private subnets"
+  value       = [for subnet in aws_subnet.private : subnet.availability_zone]
+}
+
+output "nat_ids" {
+  description = "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
+  value       = [for eni in aws_network_interface.nat_gateway : eni.id]
+}
+
+output "nat_public_ips" {
+  description = "List of public Elastic IPs created for AWS NAT Gateway"
+  value       = [for eip in aws_eip.nat : eip.public_ip]
+}
+
+output "natgw_ids" {
+  description = "List of NAT Gateway IDs"
+  value       = [for ngw in aws_nat_gateway.this : ngw.id]
+}
+
+output "dhcp_options_id" {
+  description = "The ID of the DHCP options"
+  value       = aws_vpc_dhcp_options.this.id
+}
+
+output "azs" {
+  description = "A list of availability zones specified as argument to this module"
+  value       = keys(data.aws_availability_zone.available)
 }
 
 output "resolver" {
