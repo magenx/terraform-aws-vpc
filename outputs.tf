@@ -132,12 +132,7 @@ output "nat_ids" {
 
 output "nat_public_ips" {
   description = "List of public Elastic IPs created for AWS NAT Gateway"
-  value       = [for eip in aws_eip.nat : eip.public_ip]
-}
-
-output "natgw_ids" {
-  description = "List of NAT Gateway IDs"
-  value       = [for ngw in aws_nat_gateway.this : ngw.id]
+  value       = [for eip in aws_eip.nat_gateway : eip.public_ip]
 }
 
 output "dhcp_options_id" {
