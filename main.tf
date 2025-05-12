@@ -25,7 +25,7 @@ resource "aws_subnet" "public" {
   cidr_block              = cidrsubnet(aws_vpc.this.cidr_block, 8, var.az_number[each.value.name_suffix])
   map_public_ip_on_launch = true
   tags = {
-    Name = "${var.project}-subnet-${each.key}"
+    Name = "${var.project}-public-subnet-${each.key}"
   }
 }
 # ---------------------------------------------------------------------------------------------------------------------#
