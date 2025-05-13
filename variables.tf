@@ -60,5 +60,10 @@ variable "az_number" {
     g = 6
   }
 }
+variable "create_database_subnet" {
+  description = "Whether to create private database subnets"
+  type        = bool
+  default     = false
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
