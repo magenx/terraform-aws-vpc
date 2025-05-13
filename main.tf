@@ -120,3 +120,45 @@ resource "aws_internet_gateway" "this" {
     Name = "${var.project}-internet-gateway"
   }
 }
+# # ---------------------------------------------------------------------------------------------------------------------#
+# Create dedicated PRIVATE DATABASE subnets for each AZ
+# # ---------------------------------------------------------------------------------------------------------------------#
+resource "aws_subnet" "database" {
+  for_each                = var.create_database_subnet ? data.aws_availability_zone.available : {}
+  vpc_id                  = aws_vpc.this.id
+  availability_zone       = each.key
+  cidr_block              = cidrsubnet(aws_vpc.this.cidr_block, 8, var.az_number[each.value.name_suffix] + (var.availability_zone_total * 2))
+  map_public_ip_on_launch = false
+  tags = {
+    Name = "${var.project}-private-database-subnet-${each.key}"
+  }
+}
+# # ---------------------------------------------------------------------------------------------------------------------#
+# Create route tables for DB subnets (no internet route)
+# # ---------------------------------------------------------------------------------------------------------------------#
+resource "aws_route_table" "database" {
+  for_each = var.create_database_subnet ? data.aws_availability_zone.available : {}
+  vpc_id   = aws_vpc.this.id
+  tags = {
+    Name = "${var.project}-private-database-route-table-${each.key}"
+  }
+}
+# # ---------------------------------------------------------------------------------------------------------------------#
+# Associate DB subnets with their private route tables
+# # ---------------------------------------------------------------------------------------------------------------------#
+resource "aws_route_table_association" "database" {
+  for_each       = var.create_database_subnet ? data.aws_availability_zone.available : {}
+  subnet_id      = aws_subnet.database[each.key].id
+  route_table_id = aws_route_table.database[each.key].id
+}
+# # ---------------------------------------------------------------------------------------------------------------------#
+# Create private database subnet group
+# # ---------------------------------------------------------------------------------------------------------------------#
+resource "aws_db_subnet_group" "database" {
+  count      = var.create_database_subnet ? 1 : 0
+  name       = "${var.project}-private-database-subnet-group"
+  subnet_ids = [for subnet in aws_subnet.database : subnet.id]
+  tags = {
+    Name = "${var.project}-private-database-subnet-group"
+  }
+}
