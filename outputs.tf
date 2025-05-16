@@ -125,6 +125,11 @@ output "private_subnets_azs" {
   value       = [for subnet in aws_subnet.private : subnet.availability_zone]
 }
 
+output "database_subnet_group_name" {
+  description = "The name of the database subnet group"
+  value       = try(aws_db_subnet_group.database[0].name, null)
+}
+
 output "nat_ids" {
   description = "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
   value       = [for eni in aws_network_interface.nat_gateway : eni.id]
