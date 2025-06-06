@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.0...v1.0.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* Cleanup old files ([fca3fa0](https://github.com/magenx/terraform-aws-vpc/commit/fca3fa0424e0941fe3bd4f57c68eadf8468bc223))
+* Cleanup old files ([#2](https://github.com/magenx/terraform-aws-vpc/issues/2)) ([c560499](https://github.com/magenx/terraform-aws-vpc/commit/c560499d89185f3c3c42bf10661b94e1c08adfbe))
+
 ## 1.0.0 (2025-06-06)
 
 
