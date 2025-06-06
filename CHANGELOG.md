@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.1...v1.0.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* Simple example files and folder ([d35a75e](https://github.com/magenx/terraform-aws-vpc/commit/d35a75ee64140a290851633ffc19129c1ae70594))
+* Simple example files and folder ([#5](https://github.com/magenx/terraform-aws-vpc/issues/5)) ([fbf6beb](https://github.com/magenx/terraform-aws-vpc/commit/fbf6bebb4d89e44f22e8ccdd9880e0512d019886))
+
 ## [1.0.1](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.0...v1.0.1) (2025-06-06)
 
 
