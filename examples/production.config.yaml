@@ -1,0 +1,19 @@
+brand: magenx
+codename: cloud
+domain: "magenx.org"
+
+vpc:
+  cidr_block: "10.0.0.0/16"
+  availability_zone_total: 2
+  enable_dns_support: true
+  enable_dns_hostnames: true
+  create_database_subnet: true
+  instance_tenancy: default
+  exclude_zone_ids: ["use1-az3"]
+
+nat_gateway:
+  instance_type: "t4g.nano"
+  ami_owner: "136693071363"
+  ami_image: "debian-12-arm64*"
+  volume_size: 25
+  firewall: true
