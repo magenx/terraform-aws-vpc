@@ -1,34 +1,36 @@
-name: Test
+name: Terraform files test
 
 on:
   pull_request:
     branches:
       - main
       - master
+    paths:
+      - '**/*.tf'
 
 jobs:
   validate:
-    name: Validate
     runs-on: ubuntu-latest
+    name: Validate terraform configuration
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+      - name: Terraform validate all
+        id: terraform-validate
+        uses: dflook/terraform-validate@v2
         with:
-          terraform_version: 1.12.1
+          path: "."
+
+  fmt-check:
+    runs-on: ubuntu-latest
+    name: Check formatting
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Terraform format check
-        id: format
-        run: terraform fmt -check -diff
-        continue-on-error: true
-
-      - name: Terraform init test
-        id: init
-        run: terraform init -no-color -input=false
-
-      - name: Terraform validate all
-        id: validate
-        run: terraform validate -no-color
-
+        id: terraform-fmt-check
+        uses: dflook/terraform-fmt-check@v2
+        with:
+          path: "."
