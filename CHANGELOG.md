@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.2...v1.0.3) (2025-06-09)
+
+
+### Bug Fixes
+
+* Update aws_ssm_nat_setup.tf line space ([aa563bd](https://github.com/magenx/terraform-aws-vpc/commit/aa563bd7ea6373126a5195897f09ea02491fde64))
+* Update aws_ssm_nat_setup.tf line space ([#12](https://github.com/magenx/terraform-aws-vpc/issues/12)) ([5f9288f](https://github.com/magenx/terraform-aws-vpc/commit/5f9288fb6ad2e47dafb6149ad56636621d19d188))
+* Update example main.tf format ([44ef36a](https://github.com/magenx/terraform-aws-vpc/commit/44ef36a6a485597d795bb511181012d57ec54c08))
+* Update example main.tf format ([#14](https://github.com/magenx/terraform-aws-vpc/issues/14)) ([e7fea7f](https://github.com/magenx/terraform-aws-vpc/commit/e7fea7fd8c29c748724c8e07d64b1e920a9d2394))
+* Update main.tf remove line space ([7227a75](https://github.com/magenx/terraform-aws-vpc/commit/7227a75c0dc4d45d4b924619e99a16a983c66d71))
+* Update main.tf remove line space ([#13](https://github.com/magenx/terraform-aws-vpc/issues/13)) ([f000b73](https://github.com/magenx/terraform-aws-vpc/commit/f000b73abbe9a2d7aed05e19966dace633c835d2))
+
 ## [1.0.2](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.1...v1.0.2) (2025-06-06)
 
 
