@@ -14,7 +14,7 @@ This configuration uses yaml configuration file.
 To run this example you need to execute:
 
 > terraform init -upgrade  
-> terraform workspace new production  
+> terraform workspace new development  
 > terraform plan  
 > terraform apply  
 
