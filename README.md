@@ -55,9 +55,9 @@ locals {
 
   # YAML files with variables per environment
   config_files = {
-    staging    = try(file("${abspath(path.root)}/staging.config.yaml"), "")
-    developer  = try(file("${abspath(path.root)}/developer.config.yaml"), "")
-    production = try(file("${abspath(path.root)}/production.config.yaml"), "")
+    staging     = try(file("${abspath(path.root)}/staging.config.yaml"), "")
+    development = try(file("${abspath(path.root)}/development.config.yaml"), "")
+    production  = try(file("${abspath(path.root)}/production.config.yaml"), "")
   }
 
   # Variables constructor to pass in root module [ var = local.env.cird_block ]
@@ -89,7 +89,7 @@ module "vpc" {
 ```
 
   
-> production.config.yaml
+> development.config.yaml
 ```
 brand: magenx
 codename: cloud
@@ -116,7 +116,7 @@ nat_gateway:
 > deploy
 ```
 terraform init
-terraform workspace new production
+terraform workspace new development
 terraform apply
 ```
 
