@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.4...v1.0.5) (2025-06-09)
+
+
+### Bug Fixes
+
+* Update README.md format ([#18](https://github.com/magenx/terraform-aws-vpc/issues/18)) ([1123068](https://github.com/magenx/terraform-aws-vpc/commit/112306849e0fae210a5800f9246062a1de0e72f8))
+
 ## [1.0.4](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.3...v1.0.4) (2025-06-09)
 
 
