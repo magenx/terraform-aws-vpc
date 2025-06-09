@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.3...v1.0.4) (2025-06-09)
+
+
+### Bug Fixes
+
+* Update and rename production.config.yaml to development.config.yaml ([8496979](https://github.com/magenx/terraform-aws-vpc/commit/8496979e89193318c6e893b55abb4d032421454b))
+* Update and rename production.config.yaml to development.config.yaml ([#16](https://github.com/magenx/terraform-aws-vpc/issues/16)) ([9082283](https://github.com/magenx/terraform-aws-vpc/commit/90822834d7301ae471724a82926335dfd0e92f08))
+
 ## [1.0.3](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.2...v1.0.3) (2025-06-09)
 
 
