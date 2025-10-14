@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.1...v1.1.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* Update to provider aws 6 ([#26](https://github.com/magenx/terraform-aws-vpc/issues/26)) ([b3a501f](https://github.com/magenx/terraform-aws-vpc/commit/b3a501f6996c44c13899e8993b2c0bf28356358f))
+
 ## [1.1.1](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.0...v1.1.1) (2025-10-14)
 
 
