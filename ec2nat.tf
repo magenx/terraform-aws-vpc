@@ -35,9 +35,8 @@ resource "aws_instance" "nat_gateway" {
   ami                  = data.aws_ami.this.id
   instance_type        = var.nat_gateway_instance_type
   iam_instance_profile = aws_iam_instance_profile.nat_gateway.name
-  network_interface {
+  primary_network_interface {
     network_interface_id = aws_network_interface.nat_gateway[each.key].id
-    device_index         = 0
   }
   root_block_device {
     volume_size           = var.nat_gateway_volume_size
