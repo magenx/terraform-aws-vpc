@@ -56,7 +56,7 @@ resource "aws_instance" "nat_gateway" {
 #!/bin/bash
 ### Install ssm manager
 cd /tmp/
-wget -q https://s3.${data.aws_region.current.name}.amazonaws.com/amazon-ssm-${data.aws_region.current.name}/latest/debian_$(dpkg --print-architecture)/amazon-ssm-agent.deb
+wget -q https://s3.${data.aws_region.current.region}.amazonaws.com/amazon-ssm-${data.aws_region.current.region}/latest/debian_$(dpkg --print-architecture)/amazon-ssm-agent.deb
 dpkg -i amazon-ssm-agent.deb
 systemctl enable amazon-ssm-agent
 ### Restart reconnect ssm manager
