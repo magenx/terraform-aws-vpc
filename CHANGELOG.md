@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.5...v1.0.6) (2025-10-14)
+
+
+### Bug Fixes
+
+* Update to aws 6 ([f4f461d](https://github.com/magenx/terraform-aws-vpc/commit/f4f461d22c9254735ec9ac823d0f034fd52cf12d))
+
 ## [1.0.5](https://github.com/magenx/terraform-aws-vpc/compare/v1.0.4...v1.0.5) (2025-06-09)
 
 
