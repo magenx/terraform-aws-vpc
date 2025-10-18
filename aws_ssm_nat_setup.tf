@@ -46,7 +46,7 @@ resource "aws_ssm_document" "nat_setup" {
               echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/99-nat.conf
               echo "net.ipv4.conf.all.rp_filter=0" >> /etc/sysctl.d/99-nat.conf
               echo "net.ipv4.conf.default.rp_filter=0" >> /etc/sysctl.d/99-nat.conf
-              echo "net.ipv4.conf.${INTERFACE}.rp_filter=0" >> /etc/sysctl.d/99-nat.conf
+              echo "net.ipv4.conf.$INTERFACE.rp_filter=0" >> /etc/sysctl.d/99-nat.conf
               sysctl --system
               # Disable reverse path filtering
               for file in /proc/sys/net/ipv4/conf/*/rp_filter; do
