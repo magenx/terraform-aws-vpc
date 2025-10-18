@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.2...v1.1.3) (2025-10-18)
+
+
+### Bug Fixes
+
+* Switch NAT configuration from nftables to UFW ([#28](https://github.com/magenx/terraform-aws-vpc/issues/28)) ([3d6d096](https://github.com/magenx/terraform-aws-vpc/commit/3d6d0964dc13ab218fd3941d9711398b0c3da1fc))
+
 ## [1.1.2](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.1...v1.1.2) (2025-10-14)
 
 
