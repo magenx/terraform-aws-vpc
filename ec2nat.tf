@@ -23,6 +23,9 @@ resource "aws_network_interface" "nat_gateway" {
   subnet_id         = aws_subnet.public[each.key].id
   source_dest_check = false
   security_groups   = [aws_security_group.nat_gateway.id]
+  lifecycle {
+    ignore_changes = [source_dest_check]
+  }
   tags = {
     Name = "${var.project}-nat-gateway-${each.key}"
   }
