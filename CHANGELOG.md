@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.3...v1.1.4) (2025-10-27)
+
+
+### Bug Fixes
+
+* Add lifecycle block to NAT EC2 instance ([#30](https://github.com/magenx/terraform-aws-vpc/issues/30)) ([5685bb9](https://github.com/magenx/terraform-aws-vpc/commit/5685bb9ba443c633e2c3e3913631afdb4fdc9ef0))
+
 ## [1.1.3](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.2...v1.1.3) (2025-10-18)
 
 
