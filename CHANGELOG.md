@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.4...v1.1.5) (2025-11-03)
+
+
+### Bug Fixes
+
+* Lifecycle ignore changes source_dest_check ([#32](https://github.com/magenx/terraform-aws-vpc/issues/32)) ([570afbc](https://github.com/magenx/terraform-aws-vpc/commit/570afbc275c7a5df6f84d49600c90665ccc85d1c))
+
 ## [1.1.4](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.3...v1.1.4) (2025-10-27)
 
 
