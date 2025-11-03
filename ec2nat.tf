@@ -64,6 +64,9 @@ systemctl enable amazon-ssm-agent
 ### Restart reconnect ssm manager
 systemctl restart amazon-ssm-agent
 END
+  lifecycle {
+    ignore_changes = [source_dest_check]
+  }
   tags = {
     Name   = "${var.project}-nat-gateway-${each.key}"
     EC2NAT = "true"
