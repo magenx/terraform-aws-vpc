@@ -42,9 +42,9 @@ locals {
 
   # YAML files with variables per environment
   config_files = {
-    staging    = try(file("${abspath(path.root)}/staging.config.yaml"), "")
-    development  = try(file("${abspath(path.root)}/development.config.yaml"), "")
-    production = try(file("${abspath(path.root)}/production.config.yaml"), "")
+    staging     = try(file("${abspath(path.root)}/staging.config.yaml"), "")
+    development = try(file("${abspath(path.root)}/development.config.yaml"), "")
+    production  = try(file("${abspath(path.root)}/production.config.yaml"), "")
   }
 
   # Variables constructor to pass in root module [ var = local.env.cird_block ]
@@ -74,3 +74,4 @@ module "vpc" {
   ami_owner                 = local.env.nat_gateway.ami_owner
   ami_image                 = local.env.nat_gateway.ami_image
 }
+
