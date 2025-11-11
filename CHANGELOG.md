@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.5...v1.2.0) (2025-11-11)
+
+
+### Features
+
+* Use single nat option and primary az ([#37](https://github.com/magenx/terraform-aws-vpc/issues/37)) ([d571c8b](https://github.com/magenx/terraform-aws-vpc/commit/d571c8b6ec10997736af7ff27b1785d9668f0a2c))
+
 ## [1.1.5](https://github.com/magenx/terraform-aws-vpc/compare/v1.1.4...v1.1.5) (2025-11-03)
 
 
