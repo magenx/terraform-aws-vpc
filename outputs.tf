@@ -171,7 +171,7 @@ output "primary_private_subnet_id" {
 }
 
 output "primary_public_subnet_id" {
-  description = "ID of the primary public subnet" 
+  description = "ID of the primary public subnet"
   value       = aws_subnet.public[local.primary_az].id
 }
 
