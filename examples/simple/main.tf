@@ -9,7 +9,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.95.0"
+      version = "6.20.0"
     }
   }
 }
@@ -42,9 +42,9 @@ locals {
 
   # YAML files with variables per environment
   config_files = {
-    staging    = try(file("${abspath(path.root)}/staging.config.yaml"), "")
-    developer  = try(file("${abspath(path.root)}/developer.config.yaml"), "")
-    production = try(file("${abspath(path.root)}/production.config.yaml"), "")
+    staging     = try(file("${abspath(path.root)}/staging.config.yaml"), "")
+    development = try(file("${abspath(path.root)}/development.config.yaml"), "")
+    production  = try(file("${abspath(path.root)}/production.config.yaml"), "")
   }
 
   # Variables constructor to pass in root module [ var = local.env.cird_block ]
@@ -68,8 +68,10 @@ module "vpc" {
   create_database_subnet    = local.env.vpc.create_database_subnet
   cidr_block                = local.env.vpc.cidr_block
   exclude_zone_ids          = local.env.vpc.exclude_zone_ids
+  nat_gateway_single        = local.env.nat_gateway.single
   nat_gateway_instance_type = local.env.nat_gateway.instance_type
   nat_gateway_volume_size   = local.env.nat_gateway.volume_size
   ami_owner                 = local.env.nat_gateway.ami_owner
   ami_image                 = local.env.nat_gateway.ami_image
 }
+

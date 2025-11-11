@@ -5,7 +5,7 @@
 - Subnets [public, private]
 - Database subnet
 - EC2 NAT per AZ
-- SSM Instance profile
+- EC2 NAT SSM Instance profile
 - SSM document association to setup EC2 NAT
 - S3 endpoint
 - Outputs with Parameters store  
@@ -22,7 +22,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "6.16.0"
+      version = "6.20.0"
     }
   }
 }
@@ -81,6 +81,7 @@ module "vpc" {
   create_database_subnet    = local.env.vpc.create_database_subnet
   cidr_block                = local.env.vpc.cidr_block
   exclude_zone_ids          = local.env.vpc.exclude_zone_ids
+  nat_gateway_single        = local.env.nat_gateway.single
   nat_gateway_instance_type = local.env.nat_gateway.instance_type
   nat_gateway_volume_size   = local.env.nat_gateway.volume_size
   ami_owner                 = local.env.nat_gateway.ami_owner
@@ -105,10 +106,11 @@ vpc:
   exclude_zone_ids: ["use1-az3"]
 
 nat_gateway:
+  single: true
   instance_type: "t4g.nano"
   ami_owner: "136693071363"
-  ami_image: "debian-12-arm64*"
-  volume_size: 25
+  ami_image: "debian-13-arm64*"
+  volume_size: 10
   firewall: true
 ```
 

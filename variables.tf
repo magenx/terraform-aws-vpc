@@ -48,6 +48,10 @@ variable "nat_gateway_volume_size" {
   description = "EC2 NAT Gateway volume size"
   type        = string
 }
+variable "nat_gateway_single" {
+  description = "EC2 NAT Gateway single instance"
+  type        = bool
+}
 variable "az_number" {
   description = "Assign a number to each AZ letter used in secondary cidr/subnets configuration"
   default = {
