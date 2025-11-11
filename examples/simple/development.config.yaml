@@ -12,8 +12,9 @@ vpc:
   exclude_zone_ids: ["use1-az3"]
 
 nat_gateway:
+  single: true
   instance_type: "t4g.nano"
   ami_owner: "136693071363"
-  ami_image: "debian-12-arm64*"
-  volume_size: 25
+  ami_image: "debian-13-arm64*"
+  volume_size: 10
   firewall: true

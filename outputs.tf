@@ -130,6 +130,11 @@ output "database_subnet_group_name" {
   value       = try(aws_db_subnet_group.database[0].name, null)
 }
 
+output "database_subnets" {
+  description = "List of IDs of private database subnets"
+  value       = [for subnet in aws_subnet.database : subnet.id]
+}
+
 output "nat_ids" {
   description = "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
   value       = [for eni in aws_network_interface.nat_gateway : eni.id]
@@ -153,4 +158,24 @@ output "azs" {
 output "resolver" {
   description = "RESOLVER address for this vpc"
   value       = cidrhost(aws_vpc.this.cidr_block, 2)
+}
+
+output "primary_az" {
+  description = "Primary availability zone for single-AZ resources"
+  value       = local.primary_az
+}
+
+output "primary_private_subnet_id" {
+  description = "ID of the primary private subnet"
+  value       = aws_subnet.private[local.primary_az].id
+}
+
+output "primary_public_subnet_id" {
+  description = "ID of the primary public subnet" 
+  value       = aws_subnet.public[local.primary_az].id
+}
+
+output "primary_database_subnet_id" {
+  description = "ID of the primary database subnet"
+  value       = try(aws_subnet.database[local.primary_az].id, null)
 }

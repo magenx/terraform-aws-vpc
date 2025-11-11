@@ -18,7 +18,7 @@ resource "aws_eip" "nat_gateway" {
 # Create ENI for EC2 NAT
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "aws_network_interface" "nat_gateway" {
-  for_each          = aws_subnet.public
+  for_each          = var.nat_gateway_single ? { (local.primary_az) = aws_subnet.public[local.primary_az] } : aws_subnet.public
   description       = "${var.project} NAT EC2 Instance primary interface for ${each.key}"
   subnet_id         = aws_subnet.public[each.key].id
   source_dest_check = false
@@ -34,7 +34,7 @@ resource "aws_network_interface" "nat_gateway" {
 # Create our EC2 NAT Gateway
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "aws_instance" "nat_gateway" {
-  for_each             = aws_subnet.public
+  for_each             = var.nat_gateway_single ? { (local.primary_az) = aws_subnet.public[local.primary_az] } : aws_subnet.public
   ami                  = data.aws_ami.this.id
   instance_type        = var.nat_gateway_instance_type
   iam_instance_profile = aws_iam_instance_profile.nat_gateway.name
