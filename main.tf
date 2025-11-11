@@ -83,9 +83,9 @@ resource "aws_route" "private" {
   for_each               = data.aws_availability_zone.available
   route_table_id         = aws_route_table.private[each.key].id
   destination_cidr_block = "0.0.0.0/0"
-  network_interface_id   = var.nat_gateway_single ? (
+  network_interface_id = var.nat_gateway_single ? (
     values(aws_network_interface.nat_gateway)[0].id
-      ) : (
+    ) : (
     aws_network_interface.nat_gateway[each.key].id
   )
 }
